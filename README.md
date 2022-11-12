@@ -6,6 +6,8 @@ Source: https://www.udemy.com/course/vuejs-2-the-complete-guide/
 ### Learning the Basics of VUE
 <br>
 
+# Chapter 1
+
 #### 1. Example of Vue Lay-out
 
 ```html
