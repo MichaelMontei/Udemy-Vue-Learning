@@ -201,6 +201,45 @@ methods: {
 ```
 <hr>
 
+- As a last step we need to set every binding in our template ofcourse
+
+```js
+<section class="container" v-if="winner">
+        <h2>Game Over!</h2>
+          <h3 v-if="winner === 'monster'">You Lost!</h3>
+          <h3 v-else-if="winner === 'player'">You Won!</h3>
+          <h3 v-else>It's A Draw!</h3>
+          <button @click="startGame">Start A New Game?</button>
+      </section>
+      <section id="controls" v-else>
+        <button @click="attackMonster">ATTACK</button>
+        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
+        <button @click="healPLayer">HEAL</button>
+        <button @click="surrender">SURRENDER</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul>
+          <li v-for="logMessage in logMessages" v-bind:key="logMessage.id">
+            <span
+              :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}"
+              >{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster'
+              }}</span
+            >
+            <span v-if="logMessage.actionType === 'heal'">
+              heals himself for
+              <span class="log--heal">{{ logMessage.actionValue }}</span></span
+            >
+            <span v-else>
+              attacks and deals
+              <span class="log--damage">{{ logMessage.actionValue }}</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+```
+<hr>
+
 - Below we have the example of how the game looks and works. 
 
 ![Vue](/monstergame/images/monster.JPG)
