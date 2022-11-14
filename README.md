@@ -20,6 +20,7 @@ Source: https://www.udemy.com/course/vuejs-2-the-complete-guide/
     Reserved names (DATA, METHODS, COMPUTED, WATCH)
     Data itself is seen as a function.
     While Methods and Computed take objects or functions.
+    Watch looks for changes, like calculations, etc..
 </script>
 
 <styling>
