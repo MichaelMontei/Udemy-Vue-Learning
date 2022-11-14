@@ -250,11 +250,11 @@ methods: {
 
 # Chapter 3
 
-#### 1. What is Reactivity in VUE and what does it do?
+### 1. What is Reactivity in VUE and what does it do?
 
 - In VUE, your data object is set to a reactive data object behind the scenes. This essentially wraps your data properties into a Javascript features proxy. This way we can use the "this" keyword inside our methods referring to this data properties and much more.
 
-#### 2. Proxy's in JS u mentioned?
+### 2. Proxy's in JS u mentioned?
 
 - Lets make an example to explain how VUE handles this: 
 ```js
@@ -278,3 +278,33 @@ proxy.message = 'Hello!!!!'
 - In the second console.log(key) -> its show the property "value" in this key message. (message)
 - In the third console.log(value) -> it actually updates the target value into our new value ("Hello!!!!")
 
+<hr>
+<br>
+
+# Chapter 4
+
+### 1. Introduction too Props
+- In our components folder we made a new VUE Project and here we made a new component FriendContact.vue 
+- We specified the props: name, phoneNumber and emailAddress (This should always be in camelcase! otherwise it would be an invalid JS property name!)
+- We can now use these props inside out template just calling the 'string' name
+
+```js
+<template>
+<FriendContact 
+  name="Michael Monteiro"
+  phone-number="12345 5678 899"
+  email-address="michael@localhost.com"
+></FriendContact>
+</template>
+
+export default {
+    name: 'App',
+    props: [
+      'name',
+      'phoneNumber',
+      'emailAddress'
+    ],
+```
+
+### 2. Props behavior, changing and validating
+- 

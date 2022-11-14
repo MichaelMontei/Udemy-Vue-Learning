@@ -18,12 +18,12 @@
       </header>
       <section id="app">
         <ul>
-          <li v-for="friend in friends" :key="friend.id">
-            <h2>{{ friend.name }}</h2>
+          <li>
+            <h2>{{ name }}</h2>
             <button @click="toggleDetails">Show Details</button>
             <ul v-if="showDetails">
-              <li><strong>Phone:</strong> {{ friend.phone }}</li>
-              <li><strong>Email:</strong> {{ friend.email }}</li>
+              <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+              <li><strong>Email:</strong> {{ emailAddress }}</li>
             </ul>
           </li>
         </ul>
@@ -38,30 +38,20 @@
   
   export default {
     name: 'App',
+    props: [
+      'name',
+      'phoneNumber',
+      'emailAddress'
+    ],
     data(){
       return {
         showDetails: false,
-        friends: [
-          {
-            id: 'Manuel',
-            name: 'Manuel Lorenz',
-            phone: '01234 5678 991',
-            email: 'manuel@localhost.com'
-          },
-          {
-            id: 'Julie',
-            name: 'Julie Jones',
-            phone: '09876 543 221',
-            email: 'julie@localhost.com'
-          },
-        ]
       }
     },
     methods: {
       toggleDetails(){
         this.showDetails = !this.showDetails;
       }
-     
     }
   }
   </script>

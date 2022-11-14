@@ -1,5 +1,10 @@
 <template>
-<FriendContact />
+<FriendContact
+  name="Michael Monteiro"
+  phone-number="12345 5678 899"
+  email-address="michael@localhost.com"
+></FriendContact>
+
 
 </template>
 
