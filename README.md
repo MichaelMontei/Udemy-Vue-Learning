@@ -17,7 +17,7 @@ Source: https://www.udemy.com/course/vuejs-2-the-complete-guide/
 </template>
 
 <script>
-    Reserved names (DATA, METHODS, COMPUTED)
+    Reserved names (DATA, METHODS, COMPUTED, WATCH)
     Data itself is seen as a function.
     While Methods and Computed take objects or functions.
 </script>
@@ -243,4 +243,37 @@ methods: {
 - Below we have the example of how the game looks and works. 
 
 ![Vue](/monstergame/images/monster.JPG)
+
+<hr>
+<br>
+
+# Chapter 3
+
+#### 1. What is Reactivity in VUE and what does it do?
+
+- In VUE, your data object is set to a reactive data object behind the scenes. This essentially wraps your data properties into a Javascript features proxy. This way we can use the "this" keyword inside our methods referring to this data properties and much more.
+
+#### 2. Proxy's in JS u mentioned?
+
+- Lets make an example to explain how VUE handles this: 
+```js
+const data = {
+  message: 'Hello!'
+}
+
+const handler = {
+  set(target, key, value) {
+    console.log(target);
+    console.log(key);
+    console.log(value);
+  }
+}
+
+const proxy = new Proxy(data, handler);
+proxy.message = 'Hello!!!!'
+```
+
+- In our first console.log(target) -> Vue just takes the data object and shows it. ("Hello!")
+- In the second console.log(key) -> its show the property "value" in this key message. (message)
+- In the third console.log(value) -> it actually updates the target value into our new value ("Hello!!!!")
 
