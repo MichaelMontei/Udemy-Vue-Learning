@@ -254,6 +254,8 @@ methods: {
 
 - In VUE, your data object is set to a reactive data object behind the scenes. This essentially wraps your data properties into a Javascript features proxy. This way we can use the "this" keyword inside our methods referring to this data properties and much more.
 
+<hr>
+
 ### 2. Proxy's in JS u mentioned?
 
 - Lets make an example to explain how VUE handles this: 
@@ -286,7 +288,7 @@ proxy.message = 'Hello!!!!'
 ### 1. Introduction too Props
 - In our components folder we made a new VUE Project and here we made a new component FriendContact.vue 
 - We specified the props: name, phoneNumber and emailAddress (This should always be in camelcase! otherwise it would be an invalid JS property name!)
-- We can now use these props inside out template just calling the 'string' name
+- We can now use these props inside our template just calling the 'string' name.
 
 ```js
 <template>
@@ -299,12 +301,47 @@ proxy.message = 'Hello!!!!'
 
 export default {
     name: 'App',
-    props: [
-      'name',
-      'phoneNumber',
-      'emailAddress'
-    ],
+    props: ['name', 'phoneNumber', 'emailAddress'],
+}
+```
+<hr>
+
+### 2. Props behavior and changing
+- Data changed in APP.vue should only change in the app itself as a prop. This is called mutation, Vue will not allow this. 
+- We can change the data in 2 ways: 
+   - we can let the parent know that we want to change the data and pass the updated data.
+   - We can also change the data in the child, but then we need to be aware that the data in the parent would not change with it.
+<hr>
+
+### 3. Validation of props
+- Instead of giving props in an array, we can do a better practice for props to be more strict. For instance, instead of using this props inside an array, we can use an object and give a type to our props.
+
+```js
+export default {
+    name: 'App',
+    //props: ['name', 'phoneNumber', 'emailAddress'],
+    //@ lets make the props an object and define type and required for each prop
+    props: {
+      name: {
+        type: String,
+        required: true
+      },
+      phoneNumber: {
+        type: String,
+        required: true
+      },
+       emailAddress: {
+        type: String,
+        required: true
+      },
+        isFavorite: {
+        type: String,
+        required: false,
+        default: '0'
+      },
+    }
 ```
 
-### 2. Props behavior, changing and validating
-- 
+- Supported Types:
+  - String / Number / Boolean / Array / Object / Date / Function / Symbol
+<hr>

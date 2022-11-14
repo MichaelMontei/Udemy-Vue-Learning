@@ -35,14 +35,30 @@
   
   <script>
   
-  
-  export default {
+    export default {
     name: 'App',
-    props: [
-      'name',
-      'phoneNumber',
-      'emailAddress'
-    ],
+    //props: ['name', 'phoneNumber', 'emailAddress'],
+    //@ lets make the props an object and define type and required for each prop
+    props: {
+      name: {
+        type: String,
+        required: true
+      },
+      phoneNumber: {
+        type: String,
+        required: true
+      },
+       emailAddress: {
+        type: String,
+        required: true
+      },
+        isFavorite: {
+        type: String,
+        required: false,
+        default: '0'
+      }
+    },
+   
     data(){
       return {
         showDetails: false,
